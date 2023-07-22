@@ -3,6 +3,8 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import MatchDetailCard from '../Component/MatchDetailCard'
 import { useParams } from 'react-router-dom'
+import YearSelector from '../Component/YearSelector'
+import './MatchPage.css'
 
 export default function MatchPage() {
 
@@ -21,8 +23,11 @@ export default function MatchPage() {
   );
   return (
     <div className='MatchPage'>
-      <h1>MatchPage</h1>
-      {matches.map(match => <MatchDetailCard teamName={teamName} match={match}/>)}
+      <div className='year-selector'>Select Year<YearSelector teamName = {teamName}/></div>
+      <div>
+      <h1 className='match-title'>{teamName} matches for the year {year}</h1>
+      {matches.map(match => <MatchDetailCard key={match.id} teamName={teamName} match={match}/>)}
+      </div>
     </div>
   )
 }
