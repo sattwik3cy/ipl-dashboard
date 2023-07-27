@@ -16,7 +16,7 @@ export default function TeamPage() {
     useEffect(
         () => {
             const fetchMatches = async () => {
-                const response = await fetch(`http://localhost:8080/team/${teamName}`);
+                const response = await fetch(`/team/${teamName}`);
                 const data = await response.json();
                 console.log(data);
                 setTeam(data);
